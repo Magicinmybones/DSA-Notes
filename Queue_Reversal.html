@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My C++ Code Showcase</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .title {
+            text-align: center;
+            font-size: 2.5em;
+            color: #2c3e50;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            height: auto;
+        }
+
+        .code-section {
+            background-color: #1e1e1e;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            height: 300px;
+        }
+
+        .code-section h2 {
+            color: #dcdcdc;
+            margin-top: 0;
+            font-size: 1.5em;
+            display: inline-block;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #282c34;
+            border: 1px solid #61afef;
+            width: 32px;
+            height: 32px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+
+        .copy-btn:hover {
+            background-color: #3a3f4a;
+            border-color: #4a8fd2;
+        }
+
+        .copy-btn svg {
+            width: 18px;
+            height: 18px;
+            fill: #61afef;
+        }
+
+        .copy-btn:hover svg {
+            fill: #4a8fd2;
+        }
+
+        pre {
+            margin: 0;
+            padding: 15px;
+            background-color: #282c34;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: 'Courier New', Courier, monospace;
+            color: #abb2bf;
+        }
+
+        /* Manual Colors */
+        .keyword { color: #c678dd; } /* Purple */
+        .function { color: #61afef; } /* Blue */
+        .string { color: #98c379; } /* Green */
+        .number { color: #d19a66; } /* Orange */
+        .comment { color: #5c6370; font-style: italic; } /* Gray */
+        .operator { color: #e5c07b; } /* Yellowish */
+
+        .article-section {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .article-section h2 {
+            color: #2c3e50;
+            font-size: 1.5em;
+            margin-top: 0;
+        }
+
+        .article-section img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 20px 0;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .article-section p {
+            line-height: 1.6;
+            color: #555;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
+
+            .title {
+                font-size: 2em;
+            }
+
+            .copy-btn {
+                top: 10px;
+                right: 10px;
+            }
+        }
+        #cde{
+            border-radius: 20%;
+        }
+        iframe {
+            width: 100%;
+            border: none;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">My C++ Code Showcase</h1>
+        <div class="content">
+            <div class="code-section">
+                <h2>C++ Code</h2>
+                <textarea id="textArea" rows="10" cols="50" style="display: none;">#include <iostream>
+                    #include <queue>
+                    #include <stack>
+                    using namespace std;
+                    void Queue_Reversal(queue<int> &q){
+                        stack <int> s;
+                        while(!q.empty()){
+                            int current_element = q.front();
+                            s.push(q.front());
+                            q.pop();
+                        }
+                        while(!s.empty()){
+                            q.push(s.top());
+                            s.pop();
+                        }
+                    }
+                    int main(){
+                        queue<int> q;
+                        q.push(1);
+                        q.push(2);
+                        q.push(3);
+                        q.push(4);
+                        q.push(5);
+                        Queue_Reversal(q);
+                        while (!q.empty()) {
+                            cout << q.front() << " ";
+                            q.pop();
+                        }
+                    }</textarea>
+                <button class="copy-btn" onclick="copyText()">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M16 1H4a2 2 0 0 0-2 2v14h2V3h12V1zm3 4H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm0 16H8V7h11v14z"/>
+                    </svg>
+                </button>
+            <div id = "cde" style="border-radius: 10px;">
+                    <iframe id="embeddedFrame" src="highlighted_codde.html" width="100%" height="240px" style="border:none;"></iframe>
+                </div>
+            </div>
+            <div class="article-section">
+                <h2>Explanation</h2>
+                <p>This function reverses a given queue using a stack. Here's how it works:</p>
+                <ul>
+                    <li>A stack is used to store the elements of the queue.</li>
+                    <li>Elements are dequeued one by one and pushed onto the stack.</li>
+                    <li>Once all elements are in the stack, they are popped and enqueued back into the queue.</li>
+                    <li>This results in reversing the order of elements in the queue.</li>
+                </ul>
+                <hr>
+                
+                <h2>Test Case</h2>
+                <p>Consider the following input queue:</p>
+                <pre>
+        Input: 1 2 3 4 5
+                </pre>
+                <p>Step-by-step process:</p>
+                <ol>
+                    <li>Push all elements to the stack: [5, 4, 3, 2, 1] (top to bottom).</li>
+                    <li>Pop elements from the stack and enqueue them back to the queue.</li>
+                </ol>
+                <pre>
+        Output: 5 4 3 2 1
+                </pre>
+                <hr>
+                
+                <h2>Time Complexity</h2>
+                <p>The time complexity of this function is <strong>O(n)</strong>, where <em>n</em> is the number of elements in the queue.</p>
+        </div>
+        </div>
+    </div>
+
+    <script>
+        function adjustIframeHeight() {
+    const iframe = document.getElementById('embeddedFrame');
+    iframe.onload = function () {
+        iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 'px';
+    };
+}
+window.onload = adjustIframeHeight;
+
+async function copyText() {
+            let textArea = document.getElementById("textArea");
+            try {
+                await navigator.clipboard.writeText(textArea.value);
+                alert("Text copied successfully!");
+            } catch (err) {
+                alert("Failed to copy text: " + err);
+            }
+        }
+
+
+    </script>
+</body>
+</html>
