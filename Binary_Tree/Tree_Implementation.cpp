@@ -1,9 +1,6 @@
 #include <iostream>
-<<<<<<< HEAD
 #include <cstdlib>
 #include <cstdio>
-=======
->>>>>>> 8aa8fc9bb13b50177002b104e7e939b685c9c201
 using namespace std;
 class Node{
     public:
@@ -16,7 +13,6 @@ class Node{
         this->right=NULL;
     }
     
-<<<<<<< HEAD
 };
 Node* createTree(){
         cout<<"Enter the value: "<<endl;
@@ -26,19 +22,11 @@ Node* createTree(){
             return NULL;
         }
        
-=======
-}
-Node* createTree{
-        cout<<"Enter the value: "<<endl;
-        int data;
-        cin>>data;
->>>>>>> 8aa8fc9bb13b50177002b104e7e939b685c9c201
         Node* root = new Node(data);
         root->left=createTree();
         root->right=createTree();
         return root;
     }
-<<<<<<< HEAD
 void PreOrderTraversal_NLR(Node* root){
     if(root==NULL){
         return;
@@ -67,8 +55,4 @@ int main(){
     Node* root = createTree();
     PreOrderTraversal_NLR(root);
     InOrderTraversal_LNR(root);
-=======
-int main(){
-    Node* root = createTree();
->>>>>>> 8aa8fc9bb13b50177002b104e7e939b685c9c201
 }
